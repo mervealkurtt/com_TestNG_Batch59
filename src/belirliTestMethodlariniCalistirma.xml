@@ -1,0 +1,35 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<!--
+    Bir class'da tum test method'lari calisacaksa bunun icin direkt class secmek yeterlidir.
+    Method secmemizin temel amaci class icerisinde sadece belirlenen method'larin calismasi
+    veya belirlenen methodlar disindaki tum methodlarin calismasidir.
+
+    Eger calisacak specific methodlari belirtmek istersek -> include
+    calismayacak specific methodlari belirtmek istersek -> exclude
+    keyword'leri kullanilir.
+
+    Eger methodlar dependsOnmethod ile birbirine bagli ise xml dosyasi calisirken celiski
+    olusmamasi lazim. Celiski durumunda selenium testleri calistirmaz.
+
+    suite tag'inin icine yazilacak verbose attribute'i konsolda cikan mesajlarin
+    daha az veya daha cok olmasini belirler
+    1 en az  -  10 en cok
+-->
+<suite name="istenen methodlar" verbose="3">
+    <test name="method">
+        <classes>
+            <class name="tests.day16_notations.C03_Priority">
+                <methods>
+                    <include name="test02"></include>
+                </methods>
+            </class>
+            <class name="tests.day16_notations.C04_DependsOnMethod">
+                <methods>
+                    <exclude name="test03"></exclude>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
